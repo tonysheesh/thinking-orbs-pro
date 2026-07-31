@@ -88,3 +88,13 @@ Includes 100% passing unit tests covering initialization, state switching, parti
 ## 📄 License
 
 MIT © [tonysheesh](https://github.com/tonysheesh)
+
+---
+
+## 🗺️ Roadmap & Future Enhancements
+
+- **Roadmap: WebGPU Particle Shaders**: Upgrade 2D canvas particle physics to high-performance WebGPU compute shaders for 100,000+ simultaneous particles.
+- **Roadmap: Audio-Reactive Visualization**: Add Web Audio API integration for real-time frequency spectrum analysis and sound-driven orb pulsations during agent speech streaming.
+- **Roadmap: Multi-Agent Swarm Visualization**: Render interconnected clustered orbs representing multi-subagent hierarchy and message passing topologies.
+- **Roadmap: Vue & Svelte Component Wrappers**: Native `<ThinkingOrb />` wrappers for Vue 3 and Svelte 5 frameworks.
+- **Roadmap: Theme Designer Export**: Live interactive theme editor in Studio Playground allowing custom gradient stops, aura blur radii, and JSON configuration exports.
