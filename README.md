@@ -2,9 +2,17 @@
 
 > **🚀 High-Performance 60 FPS Zero-Dependency Canvas Engine for AI Agent States & Reasoning Pipelines 🧠**
 
+![thinking-orbs-pro Banner](assets/banner.png)
+
 `thinking-orbs-pro` is an ultra-lightweight, high-DPI HTML5 Canvas 2D engine engineered to visualize AI agent lifecycle states, reasoning trajectories, tool executions, and multi-subagent swarms in real time! ⚡
 
 Inspired by top trending GitHub repository `Jakubantalik/thinking-orbs`, `thinking-orbs-pro` expands the visual vocabulary into **8 distinct agent lifecycle states** with zero runtime framework dependencies, native Web Component support, and built-in screen reader accessibility! 🎯
+
+---
+
+## ⚡ Architecture & Pipeline Diagram
+
+![thinking-orbs-pro Architecture](assets/architecture.png)
 
 ---
 
@@ -80,11 +88,11 @@ export function AgentStatusCard({ state }) {
 
 ## 🗺️ Roadmap
 
-- **💻 WebGPU Particle Compute Shaders**: Upgrade 2D canvas particle physics to high-performance WebGPU compute shaders for 100,000+ simultaneous particles! 🚀
-- **🎵 Audio-Reactive Visualization**: Add Web Audio API integration for real-time frequency spectrum analysis and sound-driven orb pulsations during agent speech! 🔊
-- **🌐 Multi-Agent Swarm Topology**: Render interconnected clustered orbs representing multi-subagent hierarchy and message-passing topologies! 🐝
-- **📦 Native Vue 3 & Svelte 5 Wrappers**: Official component packages for Vue and Svelte ecosystems! 💚
-- **🎨 Live Theme Designer Export**: Interactive theme builder in Studio Playground allowing custom gradient stops, aura blur radii, and JSON configuration exports! ✨
+- 💻 Upgrade 2D canvas particle physics to high-performance WebGPU compute shaders for 100,000+ simultaneous particles! 🚀
+- 🎵 Add Web Audio API integration for real-time frequency spectrum analysis and sound-driven orb pulsations during agent speech! 🔊
+- 🌐 Render interconnected clustered orbs representing multi-subagent hierarchy and message-passing topologies! 🐝
+- 📦 Official component packages for Vue and Svelte ecosystems! 💚
+- 🎨 Interactive theme builder in Studio Playground allowing custom gradient stops, aura blur radii, and JSON configuration exports! ✨
 
 ---
 
