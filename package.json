@@ -1,0 +1,24 @@
+{
+  "name": "thinking-orbs-pro",
+  "version": "1.0.0",
+  "description": "State-of-the-art interactive thought-orb & agent state visualization UI library for AI UIs, LLM reasoning indicators, and multi-agent systems.",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "npx serve demo"
+  },
+  "keywords": [
+    "ai",
+    "agent-ui",
+    "thinking-orbs",
+    "llm",
+    "canvas",
+    "web-components",
+    "react-component",
+    "loading-indicator"
+  ],
+  "author": "tonysheesh",
+  "license": "MIT"
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thinking Orbs Pro - AI Thought Orb Studio</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #131b2e;
+      --accent: #00f2fe;
+      --text: #f0f4f8;
+      --text-muted: #8a99ad;
+      --border: #23314d;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      max-width: 1000px;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      margin: 0 0 10px 0;
+      background: linear-gradient(135deg, #00f2fe, #b224ef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .studio-container {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      width: 100%;
+      max-width: 1000px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .studio-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .preview-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 380px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+      padding: 10px;
+      background: #0b0f19;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    code {
+      background: #080c14;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #00f2fe;
+      display: block;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🔮 Thinking Orbs Pro</h1>
+    <p>Interactive Agent Reasoning Indicator & Thought Orb Playground</p>
+  </header>
+
+  <main class="studio-container">
+    <div class="preview-card">
+      <thinking-orb-pro id="orb" state="thinking" theme="NEURAL_PURPLE" size="220" speed="1.0"></thinking-orb-pro>
+      <div id="state-badge" class="badge">STATE: THINKING</div>
+    </div>
+
+    <div class="controls-card">
+      <div class="control-group">
+        <label for="state-select">Agent Lifecycle State</label>
+        <select id="state-select">
+          <option value="thinking">thinking</option>
+          <option value="reasoning_deep">reasoning_deep</option>
+          <option value="tool_call">tool_call</option>
+          <option value="subagent_spawn">subagent_spawn</option>
+          <option value="streaming_tokens">streaming_tokens</option>
+          <option value="success">success</option>
+          <option value="error">error</option>
+          <option value="idle">idle</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="theme-select">Color Theme</label>
+        <select id="theme-select">
+          <option value="NEURAL_PURPLE">Neural Purple</option>
+          <option value="CYBER_CYAN">Cyber Cyan</option>
+          <option value="SOLAR_GOLD">Solar Gold</option>
+          <option value="EMERALD_MATRIX">Emerald Matrix</option>
+          <option value="CRIMSON_ALERT">Crimson Alert</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="speed-slider">Particle Velocity / Speed</label>
+        <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+      </div>
+
+      <div class="control-group">
+        <label>HTML Code Snippet</label>
+        <code id="code-snippet">&lt;thinking-orb-pro state="thinking" theme="NEURAL_PURPLE" size="220"&gt;&lt;/thinking-orb-pro&gt;</code>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import '../src/components/ThinkingOrbElement.js';
+
+    const orb = document.getElementById('orb');
+    const stateSelect = document.getElementById('state-select');
+    const themeSelect = document.getElementById('theme-select');
+    const speedSlider = document.getElementById('speed-slider');
+    const stateBadge = document.getElementById('state-badge');
+    const codeSnippet = document.getElementById('code-snippet');
+
+    function updateCode() {
+      const state = stateSelect.value;
+      const theme = themeSelect.value;
+      const speed = speedSlider.value;
+      
+      orb.setAttribute('state', state);
+      orb.setAttribute('theme', theme);
+      orb.setAttribute('speed', speed);
+
+      stateBadge.textContent = `STATE: ${state.toUpperCase()}`;
+      codeSnippet.textContent = `<thinking-orb-pro state="${state}" theme="${theme}" size="220" speed="${speed}"></thinking-orb-pro>`;
+    }
+
+    stateSelect.addEventListener('change', updateCode);
+    themeSelect.addEventListener('change', updateCode);
+    speedSlider.addEventListener('input', updateCode);
+  </script>
+</body>
+</html>
