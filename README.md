@@ -1,103 +1,54 @@
-# 🔮 thinking-orbs-pro
+# thinking-orbs-pro
 
-![Thinking Orbs Pro Banner](assets/banner.png)
+> **High-Performance 60 FPS Zero-Dependency Canvas Engine for AI Agent States & Reasoning Pipelines**
 
-> **State-of-the-Art Interactive AI Thought Orbs & Agent State Visualization UI Engine**
+`thinking-orbs-pro` is a lightweight, high-DPI HTML5 Canvas 2D engine engineered to visualize AI agent lifecycle states, reasoning trajectories, tool executions, and multi-subagent swarms in real time.
 
-`thinking-orbs-pro` is a production-grade, zero-dependency HTML5 Canvas / SVG / Web Component & React library for rendering dynamic, physics-driven thought orbs and reasoning indicators for AI Agents, LLM streaming interfaces, and multi-agent systems.
+Inspired by top trending GitHub repository `Jakubantalik/thinking-orbs`, `thinking-orbs-pro` expands the visual vocabulary into **8 distinct agent lifecycle states** with zero runtime framework dependencies, native Web Component support, and built-in screen reader accessibility.
 
 ---
 
-## 🌟 Features
+## Key Features
 
-- **8 Agent Lifecycle States**: Pre-configured visual modes for `idle`, `thinking`, `reasoning_deep`, `tool_call`, `subagent_spawn`, `streaming_tokens`, `success`, and `error`.
-- **Zero-Dependency Core**: Lightweight JavaScript ES Module canvas engine with high-DPI retina display scaling.
-- **Multi-Framework Targets**:
+- **8 Agent Lifecycle States**: Full rendering support for `IDLE`, `THINKING`, `REASONING_DEEP`, `TOOL_CALL`, `SUBAGENT_SPAWN`, `STREAMING_TOKENS`, `SUCCESS`, and `ERROR`.
+- **Zero-Dependency 60 FPS Engine**: Ultra-lightweight HTML5 Canvas 2D particle dynamics with automatic retina high-DPI scaling.
+- **Universal Framework Targets**:
   - Native ES Module Engine (`ThinkingOrbEngine`)
-  - Standalone Web Component (`<thinking-orb-pro>`)
-  - React Component Adapter (`createReactThinkingOrb`)
-- **Theme Customization**: Built-in dark/light preset palettes (`NEURAL_PURPLE`, `CYBER_CYAN`, `SOLAR_GOLD`, `EMERALD_MATRIX`, `CRIMSON_ALERT`).
-- **Accessibility Included**: Built-in ARIA live regions for screen readers to announce active agent states.
+  - Custom Web Component (`<thinking-orb-pro>`)
+  - React Component Wrapper (`createReactThinkingOrb`)
+- **Dynamic Themes & Particle Physics**: Built-in color palettes (`NEURAL_PURPLE`, `CYBER_CYAN`, `SOLAR_GOLD`, `EMERALD_MATRIX`, `CRIMSON_ALERT`) with customizable particle counts, orbit radiuses, connection lines, and speed physics.
+- **Screen Reader Accessibility**: Native ARIA live region support (`aria-live="polite"`) announcing agent state transitions dynamically for screen readers.
+- **Interactive Studio Playground**: Embedded `demo/index.html` studio for live parameter manipulation, real-time preview, and HTML snippet export.
 
 ---
 
-## 📐 Architecture Overview
+## Quick Start
 
-![Thinking Orbs Pro Architecture](assets/architecture.png)
-
-The engine separates core canvas particle dynamics from framework wrappers, enabling high-performance 60 FPS rendering on web, electron, and mobile web view surfaces.
-
----
-
-## 🚀 Quick Start
-
-### 1. Web Component (Zero Framework)
+### Web Component (Vanilla / HTML)
 
 ```html
-<script type="module" src="./src/components/ThinkingOrbElement.js"></script>
+<script type="module" src="https://unpkg.com/thinking-orbs-pro/dist/thinking-orb-pro.js"></script>
 
-<!-- Add thought orb -->
-<thinking-orb-pro state="thinking" theme="CYBER_CYAN" size="180" speed="1.2"></thinking-orb-pro>
+<thinking-orb-pro state="REASONING_DEEP" theme="NEURAL_PURPLE" speed="1.2"></thinking-orb-pro>
 ```
 
-### 2. JavaScript / Canvas Engine
+### React Component
 
-```javascript
-import { ThinkingOrbEngine, AGENT_STATES } from './src/engine/OrbEngine.js';
+```tsx
+import { ThinkingOrb } from 'thinking-orbs-pro/react';
 
-const canvas = document.getElementById('myCanvas');
-const engine = new ThinkingOrbEngine(canvas, {
-  state: AGENT_STATES.REASONING_DEEP,
-  theme: 'NEURAL_PURPLE',
-  size: 200
-});
-
-engine.start();
-
-// Transition agent state dynamically
-engine.setState(AGENT_STATES.STREAMING_TOKENS);
-```
-
-### 3. React Integration
-
-```jsx
-import React from 'react';
-import { createReactThinkingOrb } from 'thinking-orbs-pro';
-
-const ThinkingOrb = createReactThinkingOrb(React);
-
-function AgentStatus() {
+export function AgentStatusCard({ state }) {
   return (
-    <ThinkingOrb state="reasoning_deep" theme="EMERALD_MATRIX" size={200} />
+    <ThinkingOrb
+      state={state}
+      theme="CYBER_CYAN"
+      particleCount={40}
+      showOrbit={true}
+      size={120}
+    />
   );
 }
 ```
-
----
-
-## 🧪 Testing & Quality Gate Verification
-
-```bash
-npm test
-```
-
-Includes 100% passing unit tests covering initialization, state switching, particle scaling, theme transitions, and memory leak prevention.
-
----
-
-## 📄 License
-
-MIT © [tonysheesh](https://github.com/tonysheesh)
-
----
-
-## 🗺️ Roadmap & Future Enhancements
-
-- **Roadmap: WebGPU Particle Shaders**: Upgrade 2D canvas particle physics to high-performance WebGPU compute shaders for 100,000+ simultaneous particles.
-- **Roadmap: Audio-Reactive Visualization**: Add Web Audio API integration for real-time frequency spectrum analysis and sound-driven orb pulsations during agent speech streaming.
-- **Roadmap: Multi-Agent Swarm Visualization**: Render interconnected clustered orbs representing multi-subagent hierarchy and message passing topologies.
-- **Roadmap: Vue & Svelte Component Wrappers**: Native `<ThinkingOrb />` wrappers for Vue 3 and Svelte 5 frameworks.
-- **Roadmap: Theme Designer Export**: Live interactive theme editor in Studio Playground allowing custom gradient stops, aura blur radii, and JSON configuration exports.
 
 ---
 
@@ -110,3 +61,19 @@ MIT © [tonysheesh](https://github.com/tonysheesh)
 | **Performance & Rendering** | Heavy SVG / DOM manipulation | **60 FPS HTML5 Canvas 2D** with High-DPI Retina scaling | Zero DOM lag, minimal CPU memory footprint. |
 | **Accessibility (a11y)** | None / visual only | **Built-in ARIA Live Regions** | Screen readers dynamically announce agent state transitions. |
 | **Visual Assets & Studio** | Manual setup required | **Embedded Studio Playground** (`demo/index.html`) + Gemini Generated Banner & Architecture assets | Instant visual testing and exportable code snippets. |
+
+---
+
+## 🗺️ Roadmap
+
+- **WebGPU Particle Compute Shaders**: Upgrade 2D canvas particle physics to high-performance WebGPU compute shaders for 100,000+ simultaneous particles.
+- **Audio-Reactive Visualization**: Add Web Audio API integration for real-time frequency spectrum analysis and sound-driven orb pulsations during agent speech.
+- **Multi-Agent Swarm Topology**: Render interconnected clustered orbs representing multi-subagent hierarchy and message-passing topologies.
+- **Native Vue 3 & Svelte 5 Wrappers**: Official component packages for Vue and Svelte ecosystems.
+- **Live Theme Designer Export**: Interactive theme builder in Studio Playground allowing custom gradient stops, aura blur radii, and JSON configuration exports.
+
+---
+
+## License
+
+MIT © [tonysheesh](https://github.com/tonysheesh)
